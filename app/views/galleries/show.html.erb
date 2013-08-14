@@ -1,0 +1,32 @@
+<%= image_tag @gallery.photo.url %>
+<%= image_tag @gallery.photo.url(:medium) %>
+<%= image_tag @gallery.photo.url(:thumb) %>
+
+
+<p>
+  <strong>Photo file name:</strong>
+  <%= @gallery.photo_file_name %>
+</p>
+
+<p>
+  <strong>Photo file size:</strong>
+  <%= @gallery.photo_file_size %>
+</p>
+
+<p>
+  <strong>Photo content type:</strong>
+  <%= @gallery.photo_content_type %>
+</p>
+
+<p>
+  <strong>Photo updated at:</strong>
+  <%= @gallery.photo_updated_at %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @gallery.event_id %>
+</p>
+
+<%= link_to 'Edit', edit_gallery_path(@gallery) %> |
+<%= link_to 'Back', galleries_path %>

@@ -1,0 +1,50 @@
+<div id="left" style="float: right; background-color: #fff; width: 500px;">
+<% @event.galleries.each do |event_gallery| %>
+ <%= image_tag event_gallery.photo.url(:thumb) %>
+<% end %>
+</div>
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong>Agenda:</strong>
+  <%= @event.agenda %>
+</p>
+
+<p>
+  <strong>Total seats:</strong>
+  <%= @event.total_seats %>
+</p>
+
+<p>
+  <strong>Total attendence:</strong>
+  <%= @event.total_attendence %>
+</p>
+
+<p>
+  <strong>Any talk:</strong>
+  <%= @event.any_talk %>
+</p>
+
+<p>
+  <strong>Keynoter name:</strong>
+  <%= @event.keynoter_name %>
+</p>
+
+<p>
+  <strong>Talk subject:</strong>
+  <%= @event.talk_subject %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @event.address %>
+</p>
+
+<div class="btn-group">
+  <button class="btn"><%= link_to 'Edit', edit_event_path(@event) %> </button>
+  <button class="btn"><%= link_to 'Back', events_path %> </button>
+  <button class="btn"><%= link_to "Add Photos", new_gallery_path %></button>
+</div>

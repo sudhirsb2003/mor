@@ -1,0 +1,89 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+ 
+$(document).ready(function(){
+ 
+        $(".slidingDiv").hide();
+        $(".show_hide").show();
+ 
+        $('.show_hide').click(function(){
+        $(".slidingDiv").slideToggle();
+    });
+ 
+});
+ 
+</script>
+
+<style>
+
+  i{color:green}
+
+.slidingDiv {
+    height:auto;
+    padding:0px;
+    margin-top:10px;
+}
+ 
+.show_hide {
+    display:none;
+}
+</style>
+
+
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :agenda %>
+    <%= f.text_field :agenda %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :total_seats %>
+    <%= f.number_field :total_seats %>
+  </div>
+  
+  <div class="field">
+    <i class="show_hide">
+     <%= f.label :'Any Talk?' %>
+     <%= f.check_box :any_talk %>
+    </i>
+  </div><br>
+
+  <div class="slidingDiv">
+  <div class="field">
+    <%= f.label :keynoter_name %>
+    <%= f.text_field :keynoter_name %>
+  </div>
+  <div class="field">
+    <%= f.label :talk_subject %>
+    <%= f.text_field :talk_subject %>
+  </div>
+
+  </div>
+  
+ 
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_area :address %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit :class =>"btn btn-primary" %>
+  </div>
+<% end %>
