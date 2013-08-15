@@ -1,7 +1,16 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <b style ="font-family: 'Finger Paint', cursive; font-size:17px"><%= link_to "mumbai on rails ", root_path, id: "logo" %></b>
+      <style>
+        logo
+          { a:link {color:blue;}
+            a:visited {color:blue;}
+            a:hover {background-color:#FFFFFF;} 
+          }
+      </style>
+
+      <logo><%= link_to "mumbai on rails ", root_path, id: "logo" %></logo>
+      
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "Home", root_path %></li>

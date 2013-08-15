@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mumbai On Rails</title>
+  <%= stylesheet_link_tag    "gmaps4rails", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= yield :head %>
+  <style>
+    body {font-family: 'Ubuntu', sans-serif;font-size:15px;}
+  </style>
+</head>
+
+<hr>
+<br><br><br>
+<% flash.each do |type, message| %>
+	<div class="alert <%= simple_class_for(type) %> fade in">
+		<%= message %>
+	</div>
+<% end %>
+
+<div id ="content" style="width:610px;">
+	 <%= yield %>
+	 <%= yield :scripts %>
+</body>
+</html>

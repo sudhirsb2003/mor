@@ -1,18 +1,10 @@
-<%= gmaps4rails(@json) %>
 <b style ="font-family: 'Ubuntu', cursive; font-size:17px;float:right"><%= link_to 'Make New Event', new_event_path %></b>
 <% @events.each do |event| %>
 <div class="row">
-  <div class="span4" style ="font-size:13px;font-family:ubuntu;border:1px solid black;border-radius:10px;padding-left:10px;">
+  <div class="span4">
     <h5><%= link_to event.name, event %></h5>
      <b><%= event.agenda %><br>
-     <%= event.total_seats %><br>
-     <%= event.total_attendence %><br>
-     <%= event.any_talk %><br>
-     <%= event.keynoter_name %><br>
-     <%= event.talk_subject %><br>
      <%= event.address %></b>
-  </div>
+  <hr></div>
 </div><br>
-
- <% end %>
-
+<% end %>
