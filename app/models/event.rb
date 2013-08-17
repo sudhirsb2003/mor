@@ -6,4 +6,9 @@ class Event < ActiveRecord::Base
   "#{self.address}" 
  end
 
+
+   def gmaps4rails_infowindow
+      "#{self.name}"
+    end
+    
 end

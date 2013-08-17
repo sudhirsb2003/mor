@@ -49,6 +49,16 @@ $(document).ready(function(){
   </div>
   
   <div class="field">
+    <%= f.label :Event_Date %>
+    <%= f.date_select :event_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Event_time %>
+    <%= f.time_select :event_date %>
+  </div>
+
+  <div class="field">
     <%= f.label :agenda %>
     <%= f.text_field :agenda %>
   </div>

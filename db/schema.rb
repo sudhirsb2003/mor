@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130814031559) do
+ActiveRecord::Schema.define(version: 20130817062417) do
 
   create_table "events", force: true do |t|
     t.string   "name"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20130814031559) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
+    t.date     "event_date"
+    t.time     "event_time"
   end
 
   create_table "galleries", force: true do |t|

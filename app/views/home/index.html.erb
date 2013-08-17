@@ -18,34 +18,18 @@
 </style>
 
 
-<h4><%= link_to "View All Events", events_path %></h4>
-<% if Event.any? %>
+<!--<h4><%= link_to "View All Events", events_path %></h4>-->
 
-  <div id="body-data">
-      <div id="previous_event">
-      <h4><%= link_to Event.last.name, Event.last %></h4>
-      <%= Event.last.address %><br>
-    </div>
+ <h2 style = "color:blue">Next Meet on <%= time_tag Event.last.event_date %> @<%= Event.last.event_time %> AM</h2>
 
-    <div id ="current_event">
-      <h4><%= link_to Event.first.name, Event.first %></h4>
-      <%= Event.first.address %><br>
-    </div>
-   </div>
-  </div>
-
-<% end %>
 
 <div id="maps">
-<%= gmaps(:markers => {:data => @json, :options => { :raw => '{ animation: google.maps.Animation.BOUNCE }' } },
-          :map_options => {"detect_location" => true, "center_on_user" => true, "zoom" => 6, :raw => '{ disableDefaultUI: true, scrollwheel: false }' }) %>
+<%= gmaps({"map_options" => {"auto_zoom" => false, "zoom" => 10, :raw => '{ disableDefaultUI: true, scrollwheel: false }'  }, :markers => {:data => @json, :options => { :raw => '{ animation: google.maps.Animation.BOUNCE }' } }}) %>
 <br><br>
 </div>
+<h1><u> Old Events </u></h1>
+<% @home.each do |e| %>
+  <li><%= e.name %> ..<%= link_to 'more', e %></li>
+<% end %>
+<hr style ="color:orange">
 
-<div id="footer-data" style="width:600px;">
-      <logo style ="font-size:30px;"> Contact Us </logo>
-      <br><br>
-      <a href="https://www.facebook.com/groups/MumbaiOnRails/"> <%= image_tag ('facebook-64px.png') %></a>
-      <a href="https://groups.google.com/forum/#!forum/mrug"> <%= image_tag ('google-64px.png') %></a>
-      <a href="https://twitter.com/MumbaiOnRails"> <%= image_tag ('twitter-64px.png') %> </a>
-</div>

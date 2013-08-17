@@ -1,11 +1,9 @@
 class HomeController < ApplicationController
   def index
-    @json = Event.all.to_gmaps4rails
-    @polyjson = []
-    points = []
-    Event.all.each do |l|
-      points << {:lng => l.longitude, :lat => l.latitude}
-    end
-    @polyjson = [points].to_json
- end
+    @home = Event.all
+    @event = @home.last#.to_gmaps4rails
+    @json = @event.to_gmaps4rails do |event, marker|
+          marker.infowindow event.name
+          end
+  end
 end
